@@ -1,0 +1,10 @@
+export type TwPlaceContent =
+  | 'place-content-normal'
+  | 'place-content-start'
+  | 'place-content-end'
+  | 'place-content-center'
+  | 'place-content-between'
+  | 'place-content-around'
+  | 'place-content-evenly'
+  | 'place-content-stretch'
+  | 'place-content-baseline'

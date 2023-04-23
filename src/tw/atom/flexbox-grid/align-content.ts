@@ -1,0 +1,10 @@
+export type TwAlignContent =
+  | 'content-normal'
+  | 'content-start'
+  | 'content-end'
+  | 'content-center'
+  | 'content-between'
+  | 'content-around'
+  | 'content-evenly'
+  | 'content-stretch'
+  | 'content-baseline'

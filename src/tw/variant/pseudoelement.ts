@@ -1,0 +1,10 @@
+export type TwPseudoelementVariant =
+  | 'before:'
+  | 'after:'
+  | 'first-letter:'
+  | 'first-line:'
+  | 'marker:'
+  | 'selection:'
+  | 'file:'
+  | 'backdrop:'
+  | 'placeholder:'

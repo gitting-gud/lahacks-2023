@@ -1,0 +1,2 @@
+export type TwContainer =
+  | 'container'

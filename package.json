@@ -1,0 +1,17 @@
+{
+  "name": "back-to-class",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@nomicon/types": "^0.0.5",
+    "typescript": "^5.0.4"
+  }
+}
