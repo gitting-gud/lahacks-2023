@@ -26,6 +26,13 @@ interface FilterFalsy extends HKT {
   [HKT.o]: I<this> extends FalsyArg ? false : true
 }
   
+interface MapArgs<V extends HKT<any, boolean>> extends HKT {
+  [HKT.i]: _<this>
+  [HKT.o]:
+    I<this> extends FalsyArg ? I<this>
+    : $<V, I<this>> extends true ? I<this>
+    : never
+}
 
 /**
  * converts a single class argument into a string
@@ -52,9 +59,14 @@ export function create<Schema extends string>(): <const T extends readonly Arg<S
 /// unfortunately as part of the check to error if the args are not all valid,
 /// constness of parameters appears to be lost with array parameters.
 /// so we'll just disallow them for now - they should be a fairly rare use case either way.
-export function create<Validator extends HKT<any, boolean>>(): <const T extends readonly BaseArg<string>[]>(...args: $<List.All<Validator>, $<List.Filter<FilterFalsy>, T>> extends true ? T: never) => MergedArgs<T>;
+export function create<Validator extends HKT<any, boolean>>():
+  <const T extends readonly BaseArg<string>[]>(
+    ...args: $<List.All<Validator>, $<List.Filter<FilterFalsy>, T>> extends true
+      ? T
+      : $<List.Map<MapArgs<Validator>>, T>
+    ) => MergedArgs<T>;
 export function create<_>() {
-  return function<const T extends readonly any[]>(...args: T): MergedArgs<T> {
+  return function(...args: any): any {
     return cl(...args)
   }
 }
