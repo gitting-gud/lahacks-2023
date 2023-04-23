@@ -26,7 +26,7 @@ type ColorKeyword =
   | 'indigo'
   | 'violet'
   | 'purple'
-  | 'fuschia'
+  | 'fuchsia'
   | 'pink'
   | 'rose'
 
